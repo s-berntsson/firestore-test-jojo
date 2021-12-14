@@ -1,0 +1,5 @@
+node_modules/
+
+# såhär gör man kommentarer i .gitignore
+
+secrets/

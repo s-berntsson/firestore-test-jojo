@@ -1,0 +1,15 @@
+{
+  "name": "firestore",
+  "version": "1.0.0",
+  "description": "learning firestore",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "getAllDocs": "node src/scripts/getAllDocuments.js"
+  },
+  "author": "sanna",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^10.0.0"
+  }
+}
