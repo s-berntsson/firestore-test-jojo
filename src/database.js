@@ -10,4 +10,12 @@ function connect() {
     return db
 }   
 
-module.exports = { connect }
+//Skapa timestamp (görs här tack vare admin-objektet)
+const Timestamp = admin.firestore.Timestamp
+
+function getTimeStampNow() {
+  const now = Math.round(Date.now() / 1000)
+  return new Timestamp(now, 0)
+}
+
+module.exports = { connect, getTimeStampNow }

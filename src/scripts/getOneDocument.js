@@ -1,3 +1,7 @@
+//HÄMTA ETT SPECIFIKT DOKUMENT BASERAT PÅ ID
+    // metod: .get()
+    // För att skapa en sök-funktion används istället .where() som söker efter matches i varje doc
+
 //Connecta till databasen
 const {connect} = require('../database.js')
 const db = connect();

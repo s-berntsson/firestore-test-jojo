@@ -1,3 +1,6 @@
+//HÄMTA ALLA DOCS I EN COLLECTION
+
+//Connect to database
 const {connect} = require('../database.js')
 const db = connect();
 
@@ -15,6 +18,7 @@ async function getAll() {
     //Hämta snapshot av datan
     const usersSnapshot = await usersRef.get()
 
+    //Kontrollera att datan finns
     if ( usersSnapshot.empty ) {
         console.log('No documents in collection')
         return
@@ -22,6 +26,7 @@ async function getAll() {
 
     let array = [];
 
+    //Om den finns --> spara i listan
     await usersSnapshot.forEach(async docRef => {
         const data = await docRef.data()
         data.id = docRef.id
