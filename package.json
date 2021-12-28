@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
-    "getAllDocs": "node src/scripts/getAllDocuments.js"
+    "getAll": "node src/scripts/getAllDocuments.js",
+    "clear": "node src/scripts/deleteAll.js",
+    "populate": "node src/scripts/populate.js"
   },
   "author": "sanna",
   "license": "ISC",
