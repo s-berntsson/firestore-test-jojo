@@ -10,8 +10,6 @@ deleteAll();
 async function deleteAll(){
     console.log('Clearing all documents...')
 
-    //Hämta all docRefs. forEach => delete. Om tom, avsluta?
-
      //Hämta reference till datan
      const usersRef = db.collection(USERS)
     
@@ -25,10 +23,9 @@ async function deleteAll(){
      }
 
     //Ta bort varje object
-     usersSnapshot.forEach(async (obj) => {
-         await usersRef.doc(obj.id).delete()
-
-         console.log('Deleted, result: ', result)
+     usersSnapshot.forEach(obj => {
+        usersRef.doc(obj.id).delete()
+        console.log('Delete!')
      })
  
 }

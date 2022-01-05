@@ -12,6 +12,7 @@
   "author": "sanna",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.2",
     "firebase-admin": "^10.0.0"
   }
 }

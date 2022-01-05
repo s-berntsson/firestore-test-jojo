@@ -8,11 +8,11 @@ const db = connect();
 
 const USERS = 'users'
 
-getOne();
-
+/* getOne();
+ */
 async function getOne(id) {
-    console.log('Looking for TheWorld...')
-
+/*     console.log('Looking for TheWorld...')
+ */
     //doc-ID som tagits direkt från firestore
     const docId = id || 'd7UliB35FWWOCEeZfRpQ'
 
@@ -21,17 +21,16 @@ async function getOne(id) {
 
     //Kontrollera att datan finns
     if( !docSnapshot.exists ){
-        console.log('Could not find TheWorld.')
-        return
+/*         console.log('Could not find TheWorld.')
+ */        return {}
     }
 
     //Om inte inte finns (alltså den finns) så spara datan i variabel
     const data = await docSnapshot.data()
 
-    console.log('Found: ', data);
+    return data
 
+/*     console.log('Found: ', data);
+ */
 }
 
-
-
-//Hämta "TheWorld" från databasen

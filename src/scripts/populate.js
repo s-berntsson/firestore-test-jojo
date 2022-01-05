@@ -4,40 +4,22 @@ const db = connect();
 
 const USERS = 'users'
 
-const documents = [
-    {
-        name: 'Jotaro Kujo',
-        email: 'star.platinum@joestar.com',
-        lastOnline: getTimeStampNow()
-    },
-    {
-        name: 'Joseph Joestar',
-        email: 'hermit.purple@joestar.com',
-        lastOnline: getTimeStampNow()
-    },
-    {
-        name: 'Kakyoin Noriaki',
-        email: 'hierophant.green@goodmail.com',
-        lastOnline: getTimeStampNow()
-    },
-    {
-        name: 'Dio Brando',
-        email: 'the.world@evilmail.com',
-        lastOnline: getTimeStampNow()
-    },
-    {
-        name: 'Jolyne Kujo',
-        email: 'stone.free@joestar.com',
-        lastOnline: getTimeStampNow()
-    }
-]
+//Hämta jsondata
+const documents = require('../secrets/users.json');
 
 populate();
 
 async function populate() {
 
     documents.forEach(async (obj) => {
-        const docRef = await db.collection(USERS).add(obj)
+        //Lägg till timestamp för varje objekt
+        const newObject = {
+            ...obj,
+            lastOnline: getTimeStampNow()
+        }
+
+        //Lägg till det nya objektet i collectionen
+        const docRef = await db.collection(USERS).add(newObject)  //await krävs bara om du vill göra ngt med ex. ID innan nästa loop
         console.log('Added document with ID: ', docRef.id);
     })
 
